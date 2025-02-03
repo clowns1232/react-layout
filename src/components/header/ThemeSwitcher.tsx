@@ -9,7 +9,7 @@ interface props {
 const ThemeSwitcher: FC<props> = () => {
   const { themeName, toggleTheme } = useContext(ThemeContext);
 
-  return <button onClick={() => toggleTheme()}>{themeName}</button>;
+  return <button onClick={() => toggleTheme(themeName)}>{themeName}</button>;
 };
 
 export default ThemeSwitcher;
