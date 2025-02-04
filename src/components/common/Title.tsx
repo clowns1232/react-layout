@@ -8,8 +8,6 @@ interface Props {
 }
 
 const Title = ({ children, size, color }: Props) => {
-  console.log(color);
-
   return (
     <TitleStyle size={size} color={color}>
       {children}
@@ -18,11 +16,7 @@ const Title = ({ children, size, color }: Props) => {
 };
 const TitleStyle = styled.h1<Omit<Props, "children">>`
   font-size: ${({ theme, size }) => theme.heading[size].fontSize};
-  color: ${({ theme, color }) => {
-    console.log(color);
-
-    return theme.color[color || "primary"];
-  }};
+  color: ${({ theme, color }) => theme.color[color || "primary"]};
 `;
 
 export default Title;

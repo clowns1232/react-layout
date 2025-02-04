@@ -8,15 +8,44 @@ import {
   ThemeContext,
 } from "./context/themeContext.tsx";
 import ThemeSwitcher from "./components/header/ThemeSwitcher.tsx";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Error from "./components/common/Error";
+import Signup from "./pages/Signup";
 
-function App() {
-  const { themeName, toggleTheme } = useContext(ThemeContext);
-  return (
-    <BookStoreThemeProvider>
-      <ThemeSwitcher themeName={themeName} setThemeName={toggleTheme} />
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
       <Layout>
         <Home />
       </Layout>
+    ),
+    errorElement: <Error />,
+  },
+  {
+    path: "/books",
+    element: (
+      <Layout>
+        <div>도서 목록</div>
+      </Layout>
+    ),
+    errorElement: <Error />,
+  },
+  {
+    path: "/signup",
+    element: (
+      <Layout>
+        <Signup />
+      </Layout>
+    ),
+    errorElement: <Error />,
+  },
+]);
+
+function App() {
+  return (
+    <BookStoreThemeProvider>
+      <RouterProvider router={router} />
     </BookStoreThemeProvider>
   );
 }

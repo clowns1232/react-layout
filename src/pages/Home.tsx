@@ -9,7 +9,7 @@ const Home = () => {
         제목 테스트
       </Title>
       <div>home body</div>
-      <Button disabled={false} isLoading={false} scheme="normal" size="large">
+      <Button disabled={false} scheme="normal" size="large">
         버튼 테스트
       </Button>
       <InputText placeholder="여기에 입력" />
