@@ -11,6 +11,7 @@ import ThemeSwitcher from "./components/header/ThemeSwitcher.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Error from "./components/common/Error";
 import Signup from "./pages/Signup";
+import ResetPassword from "./pages/ResetPassword";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,15 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <Signup />
+      </Layout>
+    ),
+    errorElement: <Error />,
+  },
+  {
+    path: "/reset",
+    element: (
+      <Layout>
+        <ResetPassword />
       </Layout>
     ),
     errorElement: <Error />,
