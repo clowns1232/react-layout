@@ -34,6 +34,7 @@ const Pagination = ({ pagination }: Props) => {
                       size="small"
                       scheme={index + 1 === currentPage ? "primary" : "normal"}
                       onClick={() => handleClickPage(index + 1)}
+                      key={index}
                     >
                       {index + 1}
                     </Button>

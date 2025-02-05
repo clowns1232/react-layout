@@ -1,7 +1,57 @@
-import React from "react";
+import styled from "styled-components";
+import Button from "../common/Button";
+import { FaList, FaTh } from "react-icons/fa";
+import { useSearchParams } from "react-router-dom";
+import { QUERYSTRING } from "../../constants/querystring";
+import { useEffect } from "react";
+
+const viewOptions = [
+  { value: "list", icon: <FaList /> },
+  { value: "grid", icon: <FaTh /> },
+];
+
+export type ViewMode = "grid" | "list";
 
 const BooksViewSwitcher = () => {
-  return <div></div>;
+  const [searchParms, setSearchParams] = useSearchParams();
+
+  const handleSwitch = (value: ViewMode) => {
+    const newSearchParams = new URLSearchParams(searchParms);
+
+    newSearchParams.set(QUERYSTRING.VIEW, value);
+    setSearchParams(newSearchParams);
+  };
+  useEffect(() => {
+    if (!searchParms.get(QUERYSTRING.VIEW)) {
+      handleSwitch("grid");
+    }
+  }, []);
+  return (
+    <BooksViewSwitcherStyle>
+      {viewOptions.map((option, index) => (
+        <Button
+          size="medium"
+          scheme={
+            searchParms.get(QUERYSTRING.VIEW) === option.value
+              ? "primary"
+              : "normal"
+          }
+          key={index}
+          onClick={() => handleSwitch(option.value as ViewMode)}
+        >
+          {option.icon}
+        </Button>
+      ))}
+    </BooksViewSwitcherStyle>
+  );
 };
+
+const BooksViewSwitcherStyle = styled.div`
+  display: flex;
+  gap: 8px;
+  svg {
+    fill: #fff;
+  }
+`;
 
 export default BooksViewSwitcher;
