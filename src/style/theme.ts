@@ -67,11 +67,11 @@ export const light: Theme = {
       padding: "1rem 2rem",
     },
     medium: {
-      fontSize: "1.5rem",
+      fontSize: "1.25rem",
       padding: "0.5rem 1rem",
     },
     small: {
-      fontSize: "1.5rem",
+      fontSize: "1rem",
       padding: "0.25rem 0.5rem",
     },
   },
@@ -125,11 +125,11 @@ export const dark: Theme = {
       padding: "1rem 2rem",
     },
     medium: {
-      fontSize: "1.5rem",
+      fontSize: "1.25rem",
       padding: "0.5rem 1rem",
     },
     small: {
-      fontSize: "1.5rem",
+      fontSize: "1rem",
       padding: "0.25rem 0.5rem",
     },
   },
