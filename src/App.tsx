@@ -1,17 +1,12 @@
 import "./App.css";
-
 import Layout from "./layout/Layout";
-import Home from "./pages/Home.tsx";
-import { useContext } from "react";
-import {
-  BookStoreThemeProvider,
-  ThemeContext,
-} from "./context/themeContext.tsx";
-import ThemeSwitcher from "./components/header/ThemeSwitcher.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Error from "./components/common/Error";
 import Signup from "./pages/Signup";
 import ResetPassword from "./pages/ResetPassword";
+import Home from "./pages/Home";
+import { BookStoreThemeProvider } from "./context/themeContext";
+import Login from "./pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +41,15 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <ResetPassword />
+      </Layout>
+    ),
+    errorElement: <Error />,
+  },
+  {
+    path: "/login",
+    element: (
+      <Layout>
+        <Login />
       </Layout>
     ),
     errorElement: <Error />,
