@@ -1,4 +1,4 @@
-import { Book } from "../models/book.model";
+import { Book, BookDetail } from "../models/book.model";
 import { Pagination } from "../models/pageination.model";
 import { httpClient } from "./http";
 
@@ -31,4 +31,19 @@ export const fetchBooks = async (params: FetchBooksParams) => {
       },
     };
   }
+};
+
+export const fetchBook = async (bookId: string) => {
+  const res = await httpClient.get<BookDetail>(`/books/${bookId}`);
+  return res.data;
+};
+
+export const likeBook = async (bookId: number) => {
+  const res = await httpClient.post<BookDetail>(`/likes/${bookId}`);
+  return res.data;
+};
+
+export const likeRemoveBook = async (bookId: number) => {
+  const res = await httpClient.delete<BookDetail>(`/likes/${bookId}`);
+  return res.data;
 };

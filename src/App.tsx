@@ -8,6 +8,7 @@ import { BookStoreThemeProvider } from "./context/themeContext";
 import Login from "./pages/Login";
 import Layout from "./components/layout/Layout";
 import Books from "./pages/Books";
+import BookDetail from "./pages/BookDetail";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,15 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <Login />
+      </Layout>
+    ),
+    errorElement: <Error />,
+  },
+  {
+    path: "/book/:bookId",
+    element: (
+      <Layout>
+        <BookDetail />
       </Layout>
     ),
     errorElement: <Error />,
